@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AbdelRahman Dev</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=devie-width, initial-scale=1.0" />
+    <link rel="stylesheet" href=".css" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgb(10, 0, 30);
+            color: cyan;
+            font-family: helveica, sans-serif;
+            font-weight: normal;
+            text-align: left;
+            min-height: 100% !important;
+            height: 100%;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 10%;
+            padding: 5px 0;
+            z-index: 1000;
+            background: rgb(10, 0, 30);
+            border-bottom: 2px solid;
+            border-image: linear-gradient(to right, rgba(240, 180, 255, 1)20%, white 40%, cyan 60%, cyan 80%, transparent 100%) 100% 1;
+            overflow: hidden;
+        }
+
+        #logo {
+            float: left;
+            border: 2px solid cyan;
+            height: 40px;
+            width: 40px;
+            margin: 25px;
+        }
+
+        #links {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            float: right;
+            width: 55%;
+            margin: 0 20px;
+            line-height: 60px;
+            /*border-bottom: 3px solid;
+            border-image: linear-gradient(to left, transparent 0%, cyan 50%, cyan 50%, transparent 100%) 100% 1;*/
+        }
+
+        #link {
+            height: 100%;
+            letter-spacing: 2px;
+            margin: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: courier;
+            font-weight: bold;
+            color: cyan;
+        }
+
+        #link:hover {
+            color: rgb(200, 0, 255);
+            transition: 1s;
+        }
+
+        #welcome-section {
+            display: grid;
+            align-items: center;
+            height: 90%;
+            width: 100%;
+            background: rgb(10, 0, 30);
+            /*background-image: linear-gradient(to right, rgb(10,0,30), rgb(10,0,30), rgb(10,0,30), rgb(30,0,80));*/
+            scrollbar-color: transparent;
+            overflow-y: hidden;
+        }
+
+        .text,
+        #name-border {
+            margin-top: 50px;
+            margin-left: 15%;
+            margin-right: 15%;
+            font-size: 1.3em; 
+        }
+
+        #hello {
+            font-size: 30px;
+            font-style: italic;
+            border-left: none;
+            text-shadow: 0px 0px 5px black;
+        }
+
+        /*border-image: linear-gradient(to right, cyan 25%, transparent 75%) 100% 1;*/
+
+        .text-top {
+            position: relative;
+            top: 30%;
+            margin-bottom: 100px;
+            padding: 0 10px;
+            font-family: courier;
+            color: rgba(240, 180, 255, 1);
+            border-left: 1px solid cyan;
+        }
+
+        #name-border {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 15%;
+            height: 15vw;
+            width: 35%;
+            margin: 10px 50px;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 4em;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        #name-border::before {
+            position: absolute;
+            content: "";
+            height: 400%;
+            width: 30%;
+            background: -webkit-linear-gradient(rgb(252, 178, 255), rgb(155, 241, 241), rgb(252, 175, 255));
+            transform: rotate(-55deg);
+        }
+
+        #name-border:hover::before {
+            animation: borderspin 2s linear infinite;
+        }
+
+        @keyframes borderspin {
+            from {
+                transform: rotate(-55deg)
+            }
+
+            to {
+                transform: rotate(305deg);
+            }
+        }
+
+        #name-border::after {
+            position: absolute;
+            content: '';
+            inset: 3px;
+            border-radius: 5px;
+            background: rgb(10, 0, 30);
+        }
+
+        #name {
+            position: absolute;
+            font-size: 4vw;
+            font-weight: bold;
+            line-height: 150%;
+            background: -webkit-linear-gradient(rgb(252, 178, 255), rgb(155, 241, 241), white, rgb(252, 175, 255));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 10px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .text-bottom {
+            position: relative;
+            padding: 20px 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            /*font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+            /*font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+            font-weight: normal;
+            font-style: italic;
+            color: rgb(240, 180, 255);
+            border-top: 1px solid;
+            border-image: linear-gradient(to right, cyan 25%, transparent 75%) 100% 1;
+        }
+
+        #projects {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: space-around;
+            flex-wrap: wrap;
+            height: 100%;
+            width: 90%;
+            margin: auto;
+            gap: 0 2em;
+            border-top: 4px solid;
+            border-image: linear-gradient(to right, transparent, cyan, white, rgb(200, 0, 255), transparent) 100% 1;
+            overflow: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+        }
+
+        .project-tile {
+            flex-basis: 250px;
+            height: 60%;
+            min-width: 30%;
+            margin-top: 50px;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        iframe {
+            border: 2px solid cyan;
+            border-radius: 10px;
+        }
+
+        .project-name {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(220, 200, 255);
+            font-size: 18px;
+        }
+
+        @media only screen and (max-width: 650px) {
+            #navbar {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                top: 10%;
+                right: 0;
+                width: 20%;
+                height: 60%;
+                border: none;
+                border-left: 3px solid;
+                border-image: linear-gradient(transparent, transparent, cyan, cyan, transparent) 0% 1;
+            }
+
+            #links {
+                flex-direction: column;
+                margin: 10px 0px;
+                border: none;
+                border-image: linear-gradient(to top, transparent 0%, cyan 50%, cyan 50%, transparent 100%) 100% 1;
+                border-left: 3px solid;
+
+            }
+
+            #link {
+                height: 100%;
+                letter-spacing: 2px;
+                margin: 4px;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-family: courier;
+                font-weight: bold;
+                color: cyan;
+            }
+
+            .text,
+            #name-border {
+                margin-top: 0;
+                margin-left: 10%;
+                margin-right: 25%;
+            }
+
+            #projects {
+                display: block;
+                width: 50%;
+                margin: 0;
+                margin-left: 15%;
+            }
+            #project-tile {
+                width: 0%;
+                margin-right: 25%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <img id="logo" src="" alt="logo" />
+        <div id="links">
+            <a id="link" href="omegle.com">projects</a>
+            <a id="link" href="#work">work</a>
+            <a id="link" href="#contact">contact</a>
+            <a id="link" href="#about">about</a>
+        </div>
+    </nav>
+
+    <section id="welcome-section">
+        <h1 class="text text-top"><span id="hello">Hello,</span><br><br>my name is</h1>
+        <div id="name-border">
+            <div id="name">Abd El-Rahman<br>Elbaga</div>
+        </div>
+        <h1 class="text text-bottom">I'm a Front-End web developer and designer,<br> i will help you launch your start
+            up or grow your brand.
+        </h1>
+
+    </section>
+
+    <section id="projects">
+        <div class="project-tile">
+            <a id="projet-link" href=""><iframe src="" title="" style="margin:10px; height:60%; width: 90%;"></iframe>
+                <h2 class="project-name">Project Name</h2>
+            </a>
+        </div>
+        <div class="project-tile">
+            <a id="projet-link" href=""><iframe src="" title="" style="margin:10px; height:60%; width: 90%;"></iframe>
+                <h2 class="project-name">Project Name</h2>
+            </a>
+        </div>
+        <div class="project-tile">
+            <a id="projet-link" href=""><iframe src="" title="" style="margin:10px; height:60%; width: 90%;"></iframe>
+                <h2 class="project-name">Project Name</h2>
+            </a>
+        </div>
+        <div class="project-tile">
+            <a id="projet-link" href=""><iframe src="" title="" style="margin:10px; height:60%; width: 90%;"></iframe>
+                <h2 class="project-name">Project Name</h2>
+            </a>
+        </div>
+        <div class="project-tile">
+            <a id="projet-link" href=""><iframe src="" title="" style="margin:10px; height:60%; width: 90%;"></iframe>
+                <h2 class="project-name">Project Name</h2>
+            </a>
+        </div>
+        <div class="project-tile">
+            <a id="projet-link" href=""><iframe src="" title="" style="margin:10px; height:60%; width: 90%;"></iframe>
+                <h2 class="project-name">Project Name</h2>
+            </a>
+        </div>
+    </section>
+    <script>
+
+    </script>
+
+</body>
+
+</html>
